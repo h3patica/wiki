@@ -1,0 +1,14 @@
+nav { float:left; }
+nav ol { list-style-type: none; padding-left:0; }
+.backlink { display:inline-block; }
+.backlink a::after { display:inline-block; content:'.'; margin:0; padding:0; }
+
+body {background: #000; color: white; overflow-x: hidden; font-family: sans-serif; padding:0; margin:0;}
+body header a img { filter: invert(1)}
+body a { color: white;}
+body select { color: black; background-color: white;}
+.notice { border-color:white; }
+.ghost { opacity:0.5; display:inline-grid; }
+.ghost a::before { display:inline-block; content:'.'; }
+
+main { margin:30px; padding:10px; border: 1px solid #fff; float:right;  }
