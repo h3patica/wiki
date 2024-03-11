@@ -1,0 +1,1 @@
+![](/img/mascot.png)
