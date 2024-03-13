@@ -14,14 +14,14 @@ const head = `<!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="/css">
 </head>
 <header style="padding: 10px;border-bottom: 1px solid #fff">
-<h1><a href="/site">hdb</a></h1>
+<a href="/site"><img src="/img/brim2.png" height=75 width=75></a>
 </header>
 `
 
-// Generates <nav> stuff
-// Takes name with folder -- ex "./site/index.html"
+// Generates <nav> string for each page
 func genNav(name string) string {
 	var ret = `<nav><ol>`
+	// Leveraging hdb.go to get child and parents of page
 	dir, name := prune(name)
 	parents := getAllParents(dir + name)
 	children := getChildren(dir + name, 1)
@@ -41,6 +41,7 @@ func genNav(name string) string {
 
 func handler(w http.ResponseWriter, r *http.Request) {
  	name := r.URL.Path[len("/site/"):]
+	// serve default page (index) if attempting to go to /site/
 	if name == "" { name = "index.html" }
 	p, err := os.ReadFile("./site/" + name)
 	if err != nil { fmt.Fprintf(w, "404")  } else {

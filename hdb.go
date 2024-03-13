@@ -4,15 +4,16 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	//	"fmt"
 )
 
+// "./site/index.example.html" -> "./site/", "index.example"
 func prune(path string) (dir, file string) {
 	dir, file = filepath.Split(path)
 	file, _ = strings.CutSuffix(file, ".html")
 	return dir, file
 }
 
+// "./site/index.example.html" -> "example"
 func end(name string) string {
 	_, name = prune(name)
 	nList := strings.Split(name, ".")
@@ -46,6 +47,10 @@ func getChildren(path string, span int) []string {
 	return children
 }
 
+// Each page is already aware of each of its parent pages, as its embedded into its name
+// The pages of cat1.cat2.page.html would be:
+//   cat1.cat2.html
+//   cat1.html
 func getAllParents(path string) []string {
 	var parents []string
 	_, file := prune(path)
@@ -60,7 +65,3 @@ func getAllParents(path string) []string {
 	}
 	return parents
 }
-
-//func main() {
-//	fmt.Println(getChildren("./site/index", 2))
-//}
