@@ -12,9 +12,10 @@ const head = `<!DOCTYPE html>
 <head>
 <title>hdb</title>
 <link rel="stylesheet" type="text/css" href="/css">
+<link rel="icon" href="/img/icon.png">
 </head>
 <header style="padding: 10px;border-bottom: 1px solid #fff">
-<a href="/site"><img src="/img/brim2.png" height=75 width=75></a>
+<a href="/site"><img src="/img/brim.png" height=75 width=75></a>
 </header>
 `
 
