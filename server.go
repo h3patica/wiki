@@ -57,6 +57,10 @@ func main() {
 		func(w http.ResponseWriter, r *http.Request) {
 			http.ServeFile(w, r, "./img/" + r.URL.Path[len("/img/"):])
 		})
+	http.HandleFunc("/pdf/",
+		func(w http.ResponseWriter, r *http.Request) {
+			http.ServeFile(w, r, "./pdf/" + r.URL.Path[len("/pdf/"):])
+		})
 	http.Handle("/", http.RedirectHandler("/site", http.StatusSeeOther))
 	http.HandleFunc("/site/", handler)
 	log.Fatal(http.ListenAndServe(":8080", nil))
