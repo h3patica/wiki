@@ -11,4 +11,4 @@ body select { color: black; background-color: white;}
 .ghost { opacity:0.5; display:inline-grid; }
 .ghost a::before { display:inline-block; content:'.'; }
 
-main { margin:30px; padding:10px; border: 1px solid #fff; max-width:50%; text-align:justify; text-justify:inter-word; float:right;  }
+main { margin:30px; padding:10px; border: 1px solid #fff; max-width:50%; text-align:justify; text-justify:inter-word; hyphens: auto; float:right;  }
