@@ -12,3 +12,7 @@ body select { color: black; background-color: white;}
 .ghost a::before { display:inline-block; content:'.'; }
 
 main { margin:30px; padding:10px; border: 1px solid #fff; max-width:50%; text-align:justify; text-justify:inter-word; hyphens: auto; float:right;  }
+
+table { border-collapse: collapse; }
+tr:nth-child(even) { background-color: #252525; }
+td { padding:4px; }
