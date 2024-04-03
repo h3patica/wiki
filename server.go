@@ -45,12 +45,13 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	if name == "" { name = "index.html" }
 	p, err := os.ReadFile("./site/" + name)
 	if err != nil { fmt.Fprintf(w, "404")  } else {
-		var header = head + "\n" + `<meta content="hdb" property="og:title" />`
-		header += "\n" + `<meta content="` + name + `" property="og:description" />`
+		_, pruned := prune(name)
+		var header = head + `<meta content="hdb" property="og:title" />`
+		header += "\n" + `<meta content="` + pruned + `" property="og:description" />`
 		header += "\n" + `<meta content="` + r.URL.Path + `" property="og:url" />`
-		header += "\n" + `<meta content="https://krissy.club/img/brim.png" property="og:image" />`
+		header += "\n" + `<meta content="https://krissy.club/img/brim2.png" property="og:image" />`
 		header += "\n" + `<meta content="#000000" data-react-helmet="true" name="theme-color" />`
-		header += "\n" + `</header>`
+		header += "\n" + `</header>` + "\n"
 		fmt.Fprintf(w, "%s%s\n<main>%s</main>", header, genNav("./site/"+name), p)
 	}
 }
